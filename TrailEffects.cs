@@ -4,9 +4,6 @@ namespace TrailEffects
 {
     public class TrailEffects : Mod
     {
-        public override void Load()
-        {
-            Terraria.Main.instance = new Terraria.Main();
-        }
+        Mod mod = this;
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Terraria.ModLoader;
-using TrailEffects.Items.Pets.LightPets;
+using TrailEffects.Pets.FloatingBonboriPet;
 
 namespace TrailEffects.ModPlayers
 {

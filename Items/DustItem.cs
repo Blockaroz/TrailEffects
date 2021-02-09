@@ -28,22 +28,16 @@ namespace TrailEffects.Items
         /// <summary>
         /// Method automatically called in <see cref="UpdateVanity(Player)"/> and <see cref="UpdateAccessory(Player, bool)"/>.
         /// </summary>
-        public virtual void UpdateMovement(Player player)
-        {
-        }
+        public virtual void UpdateMovement(Player player) { }
 
         /// <summary>
         /// Called at the end of <see cref="UpdateVanity(Player)"/>.
         /// </summary>
-        public virtual void SafeUpdateVanity(Player player)
-        {
-        }
+        public virtual void SafeUpdateVanity(Player player) { }
 
         /// <summary>
         /// Called at the end of <see cref="UpdateAccessory(Player, bool)"/>
         /// </summary>
-        public virtual void SafeUpdateAccessory(Player player, bool hidVisual)
-        {
-        }
+        public virtual void SafeUpdateAccessory(Player player, bool hidVisual) { }
     }
 }

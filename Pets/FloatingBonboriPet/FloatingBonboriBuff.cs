@@ -3,9 +3,8 @@ using System.Linq;
 using Terraria;
 using Terraria.ModLoader;
 using TrailEffects.ModPlayers;
-using TrailEffects.Projectiles.Friendly;
 
-namespace TrailEffects.Buffs.Positive
+namespace TrailEffects.Pets.FloatingBonboriPet
 {
     public class FloatingBonboriBuff : ModBuff
     {

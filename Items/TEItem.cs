@@ -29,8 +29,6 @@ namespace TrailEffects.Items
         /// <summary>
         /// Called at the end of <see cref="SetDefaults"/>.
         /// </summary>
-        public virtual void SafeSetDefaults()
-        {
-        }
+        public virtual void SafeSetDefaults() { }
     }
 }

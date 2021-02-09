@@ -1,13 +1,11 @@
 ﻿using Terraria;
-using Terraria.Enums;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
-using TrailEffects.Buffs.Positive;
+using TrailEffects.Items;
 using TrailEffects.Items.Bags;
-using TrailEffects.Projectiles.Friendly;
 
-namespace TrailEffects.Items.Pets.LightPets
+namespace TrailEffects.Pets.FloatingBonboriPet
 {
     public class FloatingBonbori : TEItem
     {
@@ -22,15 +20,9 @@ namespace TrailEffects.Items.Pets.LightPets
 
         public override void SafeSetDefaults()
         {
-            Item.damage = 0;
+            Item.DefaultToVanitypet(ModContent.ProjectileType<FloatingBonboriProj>(), ModContent.BuffType<FloatingBonboriBuff>());
             Item.useStyle = ItemUseStyleID.HoldUp;
-            Item.shoot = ModContent.ProjectileType<FloatingBonboriProj>();
-            Item.UseSound = SoundID.Item2;
-            Item.useAnimation = Item.useTime = 20;
-            Item.rare = ItemRarityID.Green;
-            Item.noMelee = true;
-            Item.buffType = ModContent.BuffType<FloatingBonboriBuff>();
-            Item.SetShopValues(ItemRarityColor.Green2, Item.buyPrice(silver: 75));
+
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 

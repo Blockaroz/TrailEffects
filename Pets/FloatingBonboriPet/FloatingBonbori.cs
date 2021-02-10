@@ -17,7 +17,6 @@ namespace TrailEffects.Pets.FloatingBonboriPet
             Tooltip.SetDefault("Attracts fireflies" +
                 "\nFollows the player");
         }
-
         public override void SafeSetDefaults()
         {
             Item.DefaultToVanitypet(ModContent.ProjectileType<FloatingBonboriProj>(), ModContent.BuffType<FloatingBonboriBuff>());
@@ -29,7 +28,7 @@ namespace TrailEffects.Pets.FloatingBonboriPet
         public override void UseStyle(Player player)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
-                player.AddBuff(Item.buffTime, 3600);
+                player.AddBuff(Item.buffType, 3600);
         }
 
         public override void AddRecipes()

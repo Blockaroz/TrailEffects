@@ -18,6 +18,7 @@ namespace TrailEffects.Pets.FloatingBonboriPet
             DisplayName.SetDefault("Floating Bonbori");
             Tooltip.SetDefault("Attracts fireflies" +
                                "\nFollows the player");
+            ItemID.Sets.ItemNoGravity[Type] = true;
         }
 
         public override void SafeSetDefaults()

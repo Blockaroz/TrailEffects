@@ -91,7 +91,7 @@ namespace TrailEffects.Pets.FloatingBonboriPet
                     Projectile.rotation *= 0.95f;
             }
 
-            Projectile.spriteDirection = Projectile.position.X < player.position.X ? -1 : 1;
+            Projectile.spriteDirection = Projectile.position.X < player.position.X ? 1 : -1;
 
             LightMethod();
 

@@ -13,8 +13,6 @@ namespace TrailEffects.Pets.FloatingBonboriPet
 {
     public class FloatingBonboriProj : ModProjectile
     {
-
-        public override string Texture => "TrailEffects/Items/Bags/WanderingBonbori";
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Floating Bonbori");
@@ -134,28 +132,24 @@ namespace TrailEffects.Pets.FloatingBonboriPet
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
         {
-            Asset<Texture2D> texture = TextureAssets.Projectile[Projectile.type];
-            //Asset<Texture2D> glowTexture = ;
-            SpriteEffects flip = Projectile.spriteDirection == -1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
+            Asset<Texture2D> texture = ModContent.GetTexture("TrailEffects/Assets/FloatingBonbori_Glow");
             float cos = (float)Math.Cos(Main.GlobalTimeWrappedHourly * 3.5f) + 1f;
 
             for (int i = 0; i < 4; i++)
             {
                 Vector2 offsetPosition = new Vector2(0, cos).RotatedBy(MathHelper.PiOver2 * i) * 2;
-                spriteBatch.Draw(texture.Value, Projectile.Center + offsetPosition - Main.screenPosition, null, Color.White * 0.25882352941f, Projectile.rotation, Projectile.Size / 2f, Projectile.scale, flip, 0f);
+                spriteBatch.Draw(texture.Value, Projectile.Center + offsetPosition - Main.screenPosition, null, Color.White * 0.25882352941f, Projectile.rotation, Projectile.Size / 2f, Projectile.scale, SpriteEffects.None, 0f);
             }
 
             for (int h = 0; h < ProjectileID.Sets.TrailCacheLength[Projectile.type]; h++)
             {
                 Vector2 position = Projectile.oldPos[h] + (Projectile.Size / 2f);
                 float rotation = Projectile.oldRot[h];
-                spriteBatch.Draw(texture.Value, position - Main.screenPosition, null, Color.White * 0.1f * (1f / h), rotation, Projectile.Size / 2f, Projectile.scale, flip, 0f);
+                spriteBatch.Draw(texture.Value, position - Main.screenPosition, null, Color.White * 0.1f * (1f / h), rotation, Projectile.Size / 2f, Projectile.scale, SpriteEffects.None, 0f);
             }
 
-            lightColor = Color.Black;
             return true;
         }
-
         public override Color? GetAlpha(Color lightColor) => Color.White;
     }
 }

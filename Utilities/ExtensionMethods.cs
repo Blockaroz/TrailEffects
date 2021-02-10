@@ -32,7 +32,6 @@ namespace TrailEffects.Utilities
         }
 
         /// <summary>
-        ///     (
         ///     Automatically sets an item's size based off of its sprite.
         /// </summary>
         public static Vector2 Autosize(this Item item) =>

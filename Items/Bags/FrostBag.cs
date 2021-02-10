@@ -14,13 +14,17 @@ namespace TrailEffects.Items.Bags
             Tooltip.SetDefault("Creates a trail of frostfire behind you");
         }
 
-        public override void SafeSetDefaults() => Item.DefaultToBag(ItemRarityID.Green);
+        public override void SafeSetDefaults()
+        {
+            Item.DefaultToBag(ItemRarityID.Green);
+        }
 
         public override void UpdateMovement(Player player)
         {
             for (int i = 0; i < 4; i++)
             {
-                Dust dust = Dust.NewDustDirect(player.position, player.width, player.height - 4, 187, 0, 0, 128, Color.White, 1f);
+                Dust dust = Dust.NewDustDirect(player.position, player.width, player.height - 4, 187, 0, 0, 128,
+                    Color.White);
                 dust.noGravity = true;
                 dust.velocity *= 0.5f;
                 dust.velocity.Y -= 0.5f;

@@ -13,15 +13,20 @@ namespace TrailEffects.Items.Bags
             Tooltip.SetDefault("You are spreading love!");
         }
 
-        public override void SafeSetDefaults() => Item.DefaultToBag(ItemRarityID.LightRed);
+        public override void SafeSetDefaults()
+        {
+            Item.DefaultToBag(ItemRarityID.LightRed);
+        }
 
         public override void UpdateMovement(Player player)
         {
-            if (Main.rand.NextBool(2))
-            {
-                Vector2 randPos = new Vector2(Main.rand.Next(0, player.width), Main.rand.Next(0, player.height));
-                Gore.NewGoreDirect(player.position + randPos - new Vector2(0, 8), Vector2.Zero, 331, Main.rand.Next(10, 50) * 0.02f).sticky = false;
-            }
+            if (!Main.rand.NextBool(2))
+                return;
+
+            Vector2 randPos = new Vector2(Main.rand.Next(0, player.width), Main.rand.Next(0, player.height));
+
+            Gore.NewGoreDirect(player.position + randPos - new Vector2(0, 8), Vector2.Zero, 331,
+                Main.rand.Next(10, 50) * 0.02f).sticky = false;
         }
 
         public override void AddRecipes()

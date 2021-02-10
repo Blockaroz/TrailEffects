@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using System.Linq;
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using TrailEffects.ModPlayers;
 
@@ -24,7 +22,8 @@ namespace TrailEffects.Pets.FloatingBonboriPet
 
             int projType = ModContent.ProjectileType<FloatingBonboriProj>();
             if (player.ownedProjectileCounts[projType] <= 0 && player.whoAmI == Main.myPlayer)
-                Projectile.NewProjectile(player.position.X + player.width / 2f, player.position.Y + player.height / 2f, 0f, 0f, ModContent.ProjectileType<FloatingBonboriProj>(), 0, 0f, player.whoAmI);
+                Projectile.NewProjectile(player.position.X + player.width / 2f, player.position.Y + player.height / 2f,
+                    0f, 0f, ModContent.ProjectileType<FloatingBonboriProj>(), 0, 0f, player.whoAmI);
 
             /*if (!player.controlDown || !player.releaseDown || player.doubleTapCardinalTimer[0] <= 0 ||
                 player.doubleTapCardinalTimer[0] == 15) return;

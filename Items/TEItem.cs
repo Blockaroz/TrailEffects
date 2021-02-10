@@ -1,20 +1,15 @@
-﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ReLogic.Content;
-using System;
-using Terraria;
-using Terraria.ModLoader;
+﻿using Terraria.ModLoader;
 using TrailEffects.Utilities;
 
 namespace TrailEffects.Items
 {
     /// <summary>
-    /// Base <see cref="ModItem"/> class using by <see cref="TrailEffects"/>.
+    ///     Base <see cref="ModItem" /> class using by <see cref="TrailEffects" />.
     /// </summary>
     public abstract class TEItem : ModItem
     {
         /// <summary>
-        /// Whether this item's size should be set automatically or not.
+        ///     Whether this item's size should be set automatically or not.
         /// </summary>
         public virtual bool Autosize => true;
 
@@ -27,8 +22,10 @@ namespace TrailEffects.Items
         }
 
         /// <summary>
-        /// Called at the end of <see cref="SetDefaults"/>.
+        ///     Called at the end of <see cref="SetDefaults" />.
         /// </summary>
-        public virtual void SafeSetDefaults() { }
+        public virtual void SafeSetDefaults()
+        {
+        }
     }
 }

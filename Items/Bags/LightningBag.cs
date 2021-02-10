@@ -14,13 +14,17 @@ namespace TrailEffects.Items.Bags
             Tooltip.SetDefault("Creates a trail of lightning behind you");
         }
 
-        public override void SafeSetDefaults() => Item.DefaultToBag(ItemRarityID.Green);
+        public override void SafeSetDefaults()
+        {
+            Item.DefaultToBag(ItemRarityID.Green);
+        }
 
         public override void UpdateMovement(Player player)
         {
             for (int i = 0; i < 2; i++)
             {
-                Dust dust = Dust.NewDustDirect(player.position, player.width, player.height - 4, 264, 0, 0, 100, new Color(0, 167, 255), 1f);
+                Dust dust = Dust.NewDustDirect(player.position, player.width, player.height - 4, 264, 0, 0, 100,
+                    new Color(0, 167, 255));
                 dust.noGravity = true;
                 dust.velocity *= 0.5f;
                 dust.velocity.Y -= 0.5f;

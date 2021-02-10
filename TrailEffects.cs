@@ -4,16 +4,11 @@ namespace TrailEffects
 {
     public class TrailEffects : Mod
     {
-        /// <summary>
-        /// <see cref="TrailEffects"/>' instance, the same instance utilized by tModLoader.
-        /// </summary>
-        public TrailEffects Instance { get; }
-
         public TrailEffects()
         {
             Instance = this;
 
-            Properties = new ModProperties()
+            Properties = new ModProperties
             {
                 Autoload = true,
                 AutoloadBackgrounds = true,
@@ -21,5 +16,10 @@ namespace TrailEffects
                 AutoloadSounds = true
             };
         }
+
+        /// <summary>
+        ///     <see cref="TrailEffects" />' instance, the same instance utilized by tModLoader.
+        /// </summary>
+        public TrailEffects Instance { get; }
     }
 }

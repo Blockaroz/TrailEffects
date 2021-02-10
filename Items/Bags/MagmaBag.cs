@@ -12,14 +12,18 @@ namespace TrailEffects.Items.Bags
         {
             DisplayName.SetDefault("Magma Pouch");
             Tooltip.SetDefault("Magma and ash erupt from you when you move" +
-                "\n'Classic Pursuit'");
+                               "\n'Classic Pursuit'");
         }
 
-        public override void SafeSetDefaults() => Item.DefaultToBag(ItemRarityID.Orange);
+        public override void SafeSetDefaults()
+        {
+            Item.DefaultToBag(ItemRarityID.Orange);
+        }
 
         public override void UpdateMovement(Player player)
         {
-            Dust dust = Dust.NewDustDirect(player.position, player.width, player.height - 4, 174 /* Inferno Dust */, 0, 0, 100, Color.White, 1f);
+            Dust dust = Dust.NewDustDirect(player.position, player.width, player.height - 4, 174 /* Inferno Dust */, 0,
+                0, 100, Color.White);
             dust.noGravity = true;
             dust.velocity *= 0.75f;
             dust.velocity.Y -= 0.5f;
@@ -28,7 +32,8 @@ namespace TrailEffects.Items.Bags
 
             for (int i = 0; i < 3; i++)
             {
-                dust = Dust.NewDustDirect(player.position, player.width, player.height - 4, 109 /* Ash Dust */, 0, -0.7f, 0, Color.White, 0.5f);
+                dust = Dust.NewDustDirect(player.position, player.width, player.height - 4, 109 /* Ash Dust */, 0,
+                    -0.7f, 0, Color.White, 0.5f);
                 dust.noGravity = true;
                 dust.velocity *= 0.75f;
                 dust.velocity.Y -= 0.3f;

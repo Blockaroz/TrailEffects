@@ -17,13 +17,17 @@ namespace TrailEffects.Items.Bags
             Tooltip.SetDefault("Creates a trail of ichor behind you");
         }
 
-        public override void SafeSetDefaults() => Item.DefaultToBag(ItemRarityID.LightRed);
+        public override void SafeSetDefaults()
+        {
+            Item.DefaultToBag(ItemRarityID.LightRed);
+        }
 
         public override void UpdateMovement(Player player)
         {
             for (int i = 0; i < 2; i++)
             {
-                Dust dust = Dust.NewDustDirect(player.position, player.width, player.height - 4, 170, 0, 0, 128, Color.White, 0.7f);
+                Dust dust = Dust.NewDustDirect(player.position, player.width, player.height - 4, 170, 0, 0, 128,
+                    Color.White, 0.7f);
                 dust.noGravity = true;
                 dust.velocity *= 0.5f;
                 dust.velocity.Y -= 0.5f;
@@ -32,12 +36,15 @@ namespace TrailEffects.Items.Bags
             }
         }
 
-        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
+        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor,
+            float rotation, float scale, int whoAmI)
         {
             Asset<Texture2D> texture = ModContent.GetTexture("TrailEffects/Assets/IchorBag_Glow");
-            Vector2 position = Item.position - Main.screenPosition + new Vector2(Item.width / 2, Item.height - texture.Height() * 0.5f);
+            Vector2 position = Item.position - Main.screenPosition +
+                               new Vector2(Item.width / 2f, Item.height - texture.Height() * 0.5f);
 
-            spriteBatch.Draw(texture.Value, position, null, Color.White, rotation, texture.Size() * 0.5f, scale, SpriteEffects.None, 0f);
+            spriteBatch.Draw(texture.Value, position, null, Color.White, rotation, texture.Size() * 0.5f, scale,
+                SpriteEffects.None, 0f);
         }
 
         public override void AddRecipes()

@@ -14,10 +14,7 @@ namespace TrailEffects.Items.Bags
             Tooltip.SetDefault("Creates a trail of lightning behind you");
         }
 
-        public override void SafeSetDefaults()
-        {
-            Item.DefaultToBag(ItemRarityID.Green);
-        }
+        public override void SafeSetDefaults() => Item.DefaultToBag(ItemRarityID.Green);
 
         public override void UpdateMovement(Player player)
         {

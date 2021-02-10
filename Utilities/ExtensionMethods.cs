@@ -12,10 +12,8 @@ namespace TrailEffects.Utilities
         /// <summary>
         ///     Automatically sets the item to the defaults of a bag.
         /// </summary>
-        public static void DefaultToBag(this Item item, int itemRarity, int sacrificesRequired = 1)
-        {
+        public static void DefaultToBag(this Item item, int itemRarity, int sacrificesRequired = 1) =>
             item.DefaultToBag((ItemRarityColor)itemRarity, sacrificesRequired);
-        }
 
         /// <summary>
         ///     Automatically sets the item to the defaults of a bag.
@@ -33,9 +31,11 @@ namespace TrailEffects.Utilities
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[item.type] = sacrificesRequired;
         }
 
-        public static void Autosize(this Item item)
-        {
+        /// <summary>
+        ///     (
+        ///     Automatically sets an item's size based off of its sprite.
+        /// </summary>
+        public static Vector2 Autosize(this Item item) =>
             item.Size = TextureAssets.Item[item.type]?.Size() ?? Vector2.Zero;
-        }
     }
 }

@@ -20,30 +20,15 @@ namespace TrailEffects.Items.Bags
             ItemID.Sets.ItemNoGravity[Type] = true;
         }
 
-        public override void SafeSetDefaults()
-        {
-            Item.DefaultToBag(ItemRarityID.Green);
-        }
+        public override void SafeSetDefaults() => Item.DefaultToBag(ItemRarityID.Green);
 
-        public override void SafeUpdateAccessory(Player player, bool hideVanity)
-        {
-            DustMethod(player, 5, 3);
-        }
+        public override void SafeUpdateAccessory(Player player, bool hideVanity) => DustMethod(player, 5, 3);
 
-        public override void SafeUpdateVanity(Player player)
-        {
-            DustMethod(player, 5, 3);
-        }
+        public override void SafeUpdateVanity(Player player) => DustMethod(player, 5, 3);
 
-        public override void HoldStyle(Player player)
-        {
-            DustMethod(player, 15, 4);
-        }
+        public override void HoldStyle(Player player) => DustMethod(player, 15, 4);
 
-        public override void PostUpdate()
-        {
-            SineLightingMethod(Item.Center, 3f, 0.6f);
-        }
+        public override void PostUpdate() => SineLightingMethod(Item.Center, 3f, 0.6f);
 
         public void DustMethod(Player player, int frequency1, int frequency2, float xV = 0, float yV = 0)
         {
@@ -72,6 +57,7 @@ namespace TrailEffects.Items.Bags
         {
             float sine = ((float)Math.Sin(Main.GlobalTimeWrappedHourly * speed) + 1f) / 2.2f;
             //Main.NewText(sine);
+
             Lighting.AddLight(position, Color.DarkOrange.ToVector3() * opacity * (sine + 0.9f));
         }
 

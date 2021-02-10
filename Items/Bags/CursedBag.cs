@@ -17,10 +17,7 @@ namespace TrailEffects.Items.Bags
             Tooltip.SetDefault("Creates a trail of cursed flames behind you");
         }
 
-        public override void SafeSetDefaults()
-        {
-            Item.DefaultToBag(ItemRarityID.LightRed);
-        }
+        public override void SafeSetDefaults() => Item.DefaultToBag(ItemRarityID.LightRed);
 
         public override void UpdateMovement(Player player)
         {

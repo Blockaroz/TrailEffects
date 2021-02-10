@@ -13,10 +13,7 @@ namespace TrailEffects.Items.Bags
             Tooltip.SetDefault("You are spreading love!");
         }
 
-        public override void SafeSetDefaults()
-        {
-            Item.DefaultToBag(ItemRarityID.LightRed);
-        }
+        public override void SafeSetDefaults() => Item.DefaultToBag(ItemRarityID.LightRed);
 
         public override void UpdateMovement(Player player)
         {

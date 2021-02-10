@@ -15,10 +15,7 @@ namespace TrailEffects.Items.Bags
                                "\n'Classic Pursuit'");
         }
 
-        public override void SafeSetDefaults()
-        {
-            Item.DefaultToBag(ItemRarityID.Orange);
-        }
+        public override void SafeSetDefaults() => Item.DefaultToBag(ItemRarityID.Orange);
 
         public override void UpdateMovement(Player player)
         {

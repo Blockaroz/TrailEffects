@@ -10,9 +10,6 @@ namespace TrailEffects.ModPlayers
     {
         public bool hasFloatingBonboriPet;
 
-        public override void ResetEffects()
-        {
-            hasFloatingBonboriPet = false;
-        }
+        public override void ResetEffects() => hasFloatingBonboriPet = false;
     }
 }

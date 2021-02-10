@@ -14,10 +14,7 @@ namespace TrailEffects.Items.Bags
             Tooltip.SetDefault("Creates a storm of snow around you");
         }
 
-        public override void SafeSetDefaults()
-        {
-            Item.DefaultToBag(ItemRarityID.Orange);
-        }
+        public override void SafeSetDefaults() => Item.DefaultToBag(ItemRarityID.Orange);
 
         public override void SafeUpdateVanity(Player player)
         {

@@ -30,10 +30,11 @@ namespace TrailEffects.Pets.FloatingBonboriPet
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
         }
 
-        public override void UseStyle(Player player)
+        public override bool? UseItem(Player player)
         {
             if (player.whoAmI == Main.myPlayer && player.itemTime == 0)
                 player.AddBuff(Item.buffType, 3600);
+            return true;
         }
 
         public override void AddRecipes()

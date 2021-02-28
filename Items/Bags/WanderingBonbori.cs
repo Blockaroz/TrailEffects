@@ -26,7 +26,7 @@ namespace TrailEffects.Items.Bags
 
         public override void SafeUpdateVanity(Player player) => DustMethod(player, 5, 3);
 
-        public override void HoldStyle(Player player) => DustMethod(player, 15, 4);
+        public override void HoldStyle(Player player, Rectangle heldItemFrame) => DustMethod(player, 15, 4);
 
         public override void PostUpdate() => SineLightingMethod(Item.Center, 3f, 0.6f);
 

@@ -133,7 +133,7 @@ namespace TrailEffects.Pets.FloatingBonboriPet
             dust.shader = GameShaders.Armor.GetSecondaryShader(player.cLight, player);
         }
 
-        public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
+        public override bool PreDraw(ref Color lightColor)
         {
             Asset<Texture2D> texture = ModContent.GetTexture("TrailEffects/Assets/FloatingBonbori_Glow");
             float cos = (float)Math.Cos(Main.GlobalTimeWrappedHourly * 3.5f) + 1f;
@@ -146,9 +146,9 @@ namespace TrailEffects.Pets.FloatingBonboriPet
 
                 if (shader > 0)
                 {
-                    spriteBatch.End();
-                    spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp,
-                        spriteBatch.GraphicsDevice.DepthStencilState, spriteBatch.GraphicsDevice.RasterizerState, null,
+                    Main.spriteBatch.End();
+                    Main.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp,
+                        Main.spriteBatch.GraphicsDevice.DepthStencilState, Main.spriteBatch.GraphicsDevice.RasterizerState, null,
                         Main.GameViewMatrix.TransformationMatrix);
 
                     DrawData drawData = new DrawData
@@ -162,7 +162,7 @@ namespace TrailEffects.Pets.FloatingBonboriPet
                     GameShaders.Armor.ApplySecondary(shader, Projectile, drawData);
                 }
 
-                spriteBatch.Draw(texture.Value, drawPos, null, Color.White * 0.25882352941f, Projectile.rotation,
+                Main.spriteBatch.Draw(texture.Value, drawPos, null, Color.White * 0.25882352941f, Projectile.rotation,
                     Projectile.Size / 2f, Projectile.scale, SpriteEffects.None, 0f);
             }
 
@@ -174,9 +174,9 @@ namespace TrailEffects.Pets.FloatingBonboriPet
 
                 if (shader > 0)
                 {
-                    spriteBatch.End();
-                    spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp,
-                        spriteBatch.GraphicsDevice.DepthStencilState, spriteBatch.GraphicsDevice.RasterizerState, null,
+                    Main.spriteBatch.End();
+                    Main.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp,
+                        Main.spriteBatch.GraphicsDevice.DepthStencilState, Main.spriteBatch.GraphicsDevice.RasterizerState, null,
                         Main.GameViewMatrix.TransformationMatrix);
 
                     DrawData drawData = new DrawData
@@ -190,14 +190,14 @@ namespace TrailEffects.Pets.FloatingBonboriPet
                     GameShaders.Armor.ApplySecondary(shader, Projectile, drawData);
                 }
 
-                spriteBatch.Draw(texture.Value, drawPos, null, Color.White * 0.1f * (1f / i), rotation,
+                Main.spriteBatch.Draw(texture.Value, drawPos, null, Color.White * 0.1f * (1f / i), rotation,
                     Projectile.Size / 2f, Projectile.scale, SpriteEffects.None, 0f);
             }
 
-            spriteBatch.End();
-            spriteBatch.Begin(shader > 0 ? SpriteSortMode.Immediate : SpriteSortMode.Deferred, BlendState.AlphaBlend,
+            Main.spriteBatch.End();
+            Main.spriteBatch.Begin(shader > 0 ? SpriteSortMode.Immediate : SpriteSortMode.Deferred, BlendState.AlphaBlend,
                 SamplerState.PointClamp,
-                spriteBatch.GraphicsDevice.DepthStencilState, spriteBatch.GraphicsDevice.RasterizerState, null,
+                Main.spriteBatch.GraphicsDevice.DepthStencilState, Main.spriteBatch.GraphicsDevice.RasterizerState, null,
                 Main.GameViewMatrix.TransformationMatrix);
 
             return true;
